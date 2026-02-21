@@ -7,7 +7,7 @@ class Node{
         this.val=val;    }
 }
 
-public class Sum {
+public class Maximum {
     public static void main (String args[]){
          Node a=new Node(3);
          Node b=new Node(4);
@@ -23,6 +23,9 @@ public class Sum {
 System.out.println();
         System.out.println(size(a));
         System.out.println(sum(a));
+        System.out.println(max(a));
+        System.out.println(min(a));
+
 
  }
  private static int size(Node root){
@@ -39,6 +42,17 @@ System.out.println();
   
    
  }
+ private static int max(Node root){
+  if(root==null) return Integer.MIN_VALUE;
+  return Math.max(root.val,Math.max(max(root.left),max(root.right)));
+  
+   
+ }
+ private static int min(Node root){
+  if(root==null) return Integer.MAX_VALUE;
+  return Math.min(root.val,Math.min(min(root.left),min(root.right)));
+ }
+  
   private static void display(Node root){
     
     if(root==null) return;
